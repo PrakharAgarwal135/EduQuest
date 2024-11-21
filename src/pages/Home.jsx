@@ -1,27 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+
+import banner from "../assets/images/banner.webp";
+
 import HighlightText from "../components/core/HomePage/HighlightText";
 import CTAButton from "../components/core/HomePage/Button";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
+
+import Footer from "../components/common/Footer";
 
 export default function Home() {
   return (
     <div>
       {/* Section 1 */}
       <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
-        {/* become instructor button  */}
-        <Link to={"/signup"}>
-          <div className="group mx-auto mt-16 w-fit rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
-            <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200">
-              <p>Become an Instructor</p>
-              <FaArrowRight />
-            </div>
-          </div>
-        </Link>
-
         {/* main heading  */}
-        <div className="text-center text-4xl font-semibold">
+        <div className="text-center text-4xl font-semibold mt-16">
           Unlock Your Path to
           <HighlightText text={"World of Coding"} />
         </div>
@@ -40,6 +35,15 @@ export default function Home() {
           <CTAButton active={false} linkto={"/login"}>
             Book a Demo
           </CTAButton>
+        </div>
+
+        {/* banner image  */}
+        <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
+          <img
+            src={banner}
+            alt=""
+            className="shadow-[20px_20px_rgba(255,255,255)]"
+          />
         </div>
 
         {/* code section  */}
@@ -68,6 +72,7 @@ export default function Home() {
       {/* Section 2 */}
 
       {/* Footer */}
+      <Footer />
     </div>
   );
 }
