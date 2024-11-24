@@ -7,7 +7,11 @@ import banner from "../assets/images/banner.webp";
 import HighlightText from "../components/core/HomePage/HighlightText";
 import CTAButton from "../components/core/HomePage/Button";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
+import ExploreMore from "../components/core/HomePage/ExploreMore";
+import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
+import TimelineSection from "../components/core/HomePage/TimelineSection";
 
+import ReviewSlider from "../components/common/ReviewSlider";
 import Footer from "../components/common/Footer";
 
 export default function Home() {
@@ -67,9 +71,55 @@ export default function Home() {
             backgroundGradient={<div className="codeblock1 absolute"></div>}
           />
         </div>
+
+        {/* Explore Section */}
+        <ExploreMore />
       </div>
 
       {/* Section 2 */}
+      <div className="bg-pure-greys-5 text-richblack-700">
+        <div className="homepage_bg h-[320px]">
+          {/* Explore Full Catagory Section */}
+          <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
+            <div className="lg:h-[150px]"></div>
+            <div className="flex flex-row gap-7 text-white lg:mt-8">
+              <CTAButton active={true} linkto={"/signup"}>
+                <div className="flex items-center gap-2">
+                  Explore Full Catalog
+                  <FaArrowRight />
+                </div>
+              </CTAButton>
+              <CTAButton active={false} linkto={"/login"}>
+                Learn More
+              </CTAButton>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
+          {/* Job in Demand heading wla section */}
+          <div className="mb-10 mt-[-100px] flex flex-col justify-between gap-7 lg:mt-20 lg:flex-row lg:gap-0">
+            <div className="text-4xl font-semibold ">
+              Get the skills you need for a{" "}
+              <HighlightText text={"job that is in demand."} />
+            </div>
+          </div>
+
+          {/* Timeline Section*/}
+          <TimelineSection />
+
+          {/* Learning Language */}
+          <LearningLanguageSection />
+        </div>
+      </div>
+
+      {/* Section 3 (reviews from user)   */}
+      <div className="relative mx-auto my-16 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
+        <h1 className="text-center text-4xl font-semibold mt-1">
+          Reviews from other learners
+        </h1>
+        <ReviewSlider />
+      </div>
 
       {/* Footer */}
       <Footer />
