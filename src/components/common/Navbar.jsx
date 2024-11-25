@@ -56,7 +56,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700">
+    <div className="flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-800 transition-all duration-200">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* logo  */}
         <Link to={"/"}>
@@ -143,7 +143,7 @@ export default function Navbar() {
           {/* if token is null show login  */}
           {token === null && (
             <Link to="/login">
-              <button className="rounded-md border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className="rounded-md border border-richblack-700 bg-richblack-700 px-[12px] py-[8px] text-richblack-100">
                 Log in
               </button>
             </Link>
@@ -152,7 +152,7 @@ export default function Navbar() {
           {/* if token is null show signup  */}
           {token === null && (
             <Link to="/signup">
-              <button className="rounded-md border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className="rounded-md border border-richblack-700 bg-richblack-700 px-[12px] py-[8px] text-richblack-100">
                 Sign up
               </button>
             </Link>

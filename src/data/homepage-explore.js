@@ -106,7 +106,7 @@ export const HomePageExplore = [
     ],
   },
   {
-    tag: "Mobile App Development",
+    tag: "App Development",
     courses: [
       {
         heading: "Android App Development with Kotlin",

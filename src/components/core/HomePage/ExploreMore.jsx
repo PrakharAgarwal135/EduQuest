@@ -9,7 +9,7 @@ const tabsName = [
   "Python",
   "Machine Learning",
   "DevOps",
-  "Mobile App Development",
+  "App Development",
   "Cybersecurity",
   "Web Dev",
 ];

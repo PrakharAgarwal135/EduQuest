@@ -7,6 +7,27 @@ body {
   overflow-x: hidden;
 }
 
+/* spinner  */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* home page => section 1  */
 .codeblock1 {
   width: 372.95px;
@@ -41,4 +62,16 @@ body {
 /* home pg bg (section 2) */
 .homepage_bg {
   background: url("../src/assets/images/bghome.svg");
+}
+
+/* form input style  */
+.input-style {
+  padding: 0.75rem; /* p-3 */
+  font-weight: 500; /* font-medium */
+  border-radius: 8px; /* rounded-[8px] */
+  background-color: #161d29; /* bg-richblack-800 */
+  color: #f1f2ff; /* text-richblack-5 */
+  width: 100%; /* w-full */
+  outline: none; /* outline-none */
+  border: 1px solid #2c333f; /* border border-richblack-700 */
 }

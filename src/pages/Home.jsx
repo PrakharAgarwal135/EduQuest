@@ -40,17 +40,17 @@ export default function Home() {
           </CTAButton>
         </div>
 
-        {/* banner image  */}
-        <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
+        {/* banner image */}
+        {/* <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
           <img
             src={banner}
             alt=""
             className="shadow-[20px_20px_rgba(255,255,255)]"
           />
-        </div>
+        </div> */}
 
         {/* code section  */}
-        <div>
+        <div className="mt-6">
           <CodeBlocks
             heading={
               <div className="text-4xl font-semibold">
