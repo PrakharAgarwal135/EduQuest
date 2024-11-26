@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <div>
       {/* Section 1 */}
-      <div className=" -mt-6 relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
+      <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
         {/* main heading  */}
-        <div className="text-center text-4xl font-semibold mt-16">
+        <div className="text-center text-4xl font-semibold mt-10">
           Unlock Your Path to
           <HighlightText text={"World of Coding"} />
         </div>

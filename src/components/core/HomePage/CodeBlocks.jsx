@@ -11,9 +11,7 @@ export default function CodeBlocks({
   backgroundGradient,
 }) {
   return (
-    <div
-      className={`flex lg:flex-row my-20 justify-between flex-col lg:gap-10 gap-10`}
-    >
+    <div className={"flex lg:flex-row my-20 justify-between flex-col gap-10"}>
       {/* left wla part (text and buttons)  */}
       <div className="w-[100%] lg:w-[50%] flex flex-col gap-8">
         {heading}

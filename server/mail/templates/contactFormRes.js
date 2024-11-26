@@ -3,7 +3,8 @@ module.exports.contactUsEmail = (
   firstname,
   lastname,
   message,
-  phoneNo
+  phoneNo,
+  countrycode
 ) => {
   return `<!DOCTYPE html>
   <html>
@@ -83,7 +84,7 @@ module.exports.contactUsEmail = (
               <p>Here are the details you provided:</p>
               <p>Name: ${firstname} ${lastname}</p>
               <p>Email: ${email}</p>
-              <p>Phone Number: ${phoneNo}</p>
+              <p>Phone Number:${countrycode} ${" "} ${phoneNo}</p>
               <p>Message: ${message}</p>
               <p>We appreciate your interest and will get back to you shortly. </p>
           </div>
