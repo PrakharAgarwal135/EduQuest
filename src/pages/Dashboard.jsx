@@ -31,6 +31,7 @@ export default function Dashboard() {
 
   return (
     <div className="relative flex min-h-screen">
+      {/* sidebar div  */}
       <div
         ref={showRef}
         className={`z-30 ${
@@ -39,6 +40,7 @@ export default function Dashboard() {
       >
         <Sidebar />
       </div>
+      {/* dashboard btn that will apear on sm screen and will be used to toggle sidebar  */}
       <button
         onClick={() => {
           setShow(!show);
@@ -48,6 +50,10 @@ export default function Dashboard() {
       >
         <MdSpaceDashboard fontSize={20} />
       </button>
+
+      {/* outlet is used to render child routes in a nested routing structure. */}
+      {/* It acts as a placeholder where the child components defined in the routing */}
+      {/* configuration will be displayed  */}
       <div className="h-screen w-full overflow-auto">
         <div className="mx-auto w-11/12 max-w-[1000px] py-10">
           <Outlet />

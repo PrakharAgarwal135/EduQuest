@@ -155,7 +155,7 @@ export default function ContactForm() {
             {/* input phone number  */}
             <div className="flex w-[100%] flex-col gap-2">
               <input
-                type="number"
+                type="text"
                 name="phoneNo"
                 id="phoneNo"
                 placeholder="12345 67890"
@@ -165,8 +165,10 @@ export default function ContactForm() {
                     value: true,
                     message: "Please enter your Phone Number.",
                   },
-                  maxLength: { value: 10, message: "Invalid Phone Number" },
-                  minLength: { value: 10, message: "Invalid Phone Number" },
+                  pattern: {
+                    value: /^\d{10}$/,
+                    message: "Phone Number must be exactly 10 digits.",
+                  },
                 })}
               />
             </div>
