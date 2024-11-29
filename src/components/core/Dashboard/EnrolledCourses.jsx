@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
-import { BiDotsVerticalRounded } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -60,11 +59,14 @@ export default function EnrolledCourses() {
                   );
                 }}
               >
+                {/* thumbnail  */}
                 <img
                   src={course.thumbnail}
                   alt="course_img"
                   className="h-14 w-14 rounded-lg object-cover"
                 />
+
+                {/* course name and description  */}
                 <div className="flex max-w-xs flex-col gap-2">
                   <p className="font-semibold">{course.courseName}</p>
                   <p className="text-xs text-richblack-300">
@@ -74,7 +76,11 @@ export default function EnrolledCourses() {
                   </p>
                 </div>
               </div>
+
+              {/* total duration  */}
               <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div>
+
+              {/* progress bar  */}
               <div className="flex w-1/5 flex-col gap-2 px-2 py-3">
                 <p>Progress: {course.progressPercentage || 0}%</p>
                 <ProgressBar
