@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function AddCourse() {
+export default function RenderSteps() {
   return <div></div>;
 }

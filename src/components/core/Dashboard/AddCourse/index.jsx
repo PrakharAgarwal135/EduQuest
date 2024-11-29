@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Instructor() {
+export default function index() {
   return <div></div>;
 }
