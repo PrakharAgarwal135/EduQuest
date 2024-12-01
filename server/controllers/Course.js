@@ -9,66 +9,54 @@ const { convertSecondsToDuration } = require("../utils/secToDuration");
 // creating a course
 exports.createCourse = async (req, res) => {
   try {
-    // fetch data
+    // Get user ID from request object
+    const userId = req.user.id;
+
+    // Get all required fields from request body
     let {
       courseName,
       courseDescription,
       whatYouWillLearn,
       price,
-      // tag: _tag,
+      tag: _tag,
       category,
       status,
-      // instructions: _instructions,
+      instructions: _instructions,
     } = req.body;
 
-    console.log("Request Body (Keys):", Object.keys(req.body));
-    console.log("_tag:", req.body._tag);
-    console.log("_instructions:", req.body._instructions);
-
     // Get thumbnail image from request files
-    const thumbnail = req.files.thumbnailImage;
-    console.log(thumbnail);
+    const thumbnail = req.files.thumbnail;
 
     // Convert the tag and instructions from stringified Array to Array
-    // const tag = JSON.parse(_tag);
-    // const instructions = JSON.parse(_instructions);
-
-    const tag = req.body._tag ? req.body._tag.split(",") : [];
-    const instructions = req.body._instructions
-      ? req.body._instructions.split(",")
-      : [];
+    const tag = JSON.parse(_tag);
+    const instructions = JSON.parse(_instructions);
 
     console.log("tag", tag);
     console.log("instructions", instructions);
 
-    // validation
+    // Check if any of the required fields are missing
     if (
       !courseName ||
       !courseDescription ||
       !whatYouWillLearn ||
       !price ||
       !tag.length ||
+      !thumbnail ||
       !category ||
-      !instructions.length ||
-      !thumbnail
+      !instructions.length
     ) {
       return res.status(400).json({
         success: false,
         message: "All Fields are Mandatory",
       });
     }
-
     if (!status || status === undefined) {
       status = "Draft";
     }
-
-    // check for instructor
-    const userId = req.user.id;
+    // Check if the user is an instructor
     const instructorDetails = await User.findById(userId, {
       accountType: "Instructor",
     });
-
-    console.log("Instruction details", instructorDetails);
 
     if (!instructorDetails) {
       return res.status(404).json({
@@ -77,12 +65,12 @@ exports.createCourse = async (req, res) => {
       });
     }
 
-    // check given category is valid or not
+    // Check if the tag given is valid
     const categoryDetails = await Category.findById(category);
     if (!categoryDetails) {
       return res.status(404).json({
         success: false,
-        message: "Category details Not Found",
+        message: "Category Details Not Found",
       });
     }
 
@@ -91,6 +79,7 @@ exports.createCourse = async (req, res) => {
       thumbnail,
       process.env.FOLDER_NAME
     );
+    console.log(thumbnailImage);
 
     // Create a new course with the given details
     const newCourse = await Course.create({
@@ -120,7 +109,7 @@ exports.createCourse = async (req, res) => {
     );
 
     // Add the new course to the Categories
-    await Category.findByIdAndUpdate(
+    const categoryDetails2 = await Category.findByIdAndUpdate(
       { _id: category },
       {
         $push: {
@@ -192,7 +181,7 @@ exports.editCourse = async (req, res) => {
     // If Thumbnail Image is found, update it
     if (req.files) {
       console.log("thumbnail update");
-      const thumbnail = req.files.thumbnailImage;
+      const thumbnail = req.files.thumbnail;
       const thumbnailImage = await uploadImageToCloudinary(
         thumbnail,
         process.env.FOLDER_NAME
@@ -422,7 +411,7 @@ exports.deleteCourse = async (req, res) => {
     }
 
     // Unenroll students from the course
-    const studentsEnrolled = course.studentsEnroled;
+    const studentsEnrolled = course.studentsEnrolled;
     for (const studentId of studentsEnrolled) {
       await User.findByIdAndUpdate(studentId, {
         $pull: { courses: courseId },
