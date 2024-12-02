@@ -17,7 +17,10 @@ export default function MyProfile() {
         {/* img , name and email  */}
         <div className="flex gap-4 items-center  ">
           <img
-            src={user?.image}
+            src={
+              user?.image ||
+              `https://api.dicebear.com/9.x/initials/svg?seed=${user?.firstName} ${user?.lastName}`
+            }
             alt={`profile-${user?.firstName}`}
             className="aspect-square w-[78px] rounded-full object-cover"
           />

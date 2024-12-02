@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { FiEdit2 } from "react-icons/fi";
 import { HiClock } from "react-icons/hi";
@@ -13,6 +13,7 @@ import { formatDate } from "../../../../services/formatDate";
 import {
   deleteCourse,
   fetchInstructorCourses,
+  fetchCourseDetails,
 } from "../../../../services/operations/courseDetailsAPI";
 import { COURSE_STATUS } from "../../../../utils/constants";
 import ConfirmationModal from "../../../common/ConfirmationModal";
@@ -25,6 +26,25 @@ export default function CoursesTable({ courses, setCourses }) {
   const [confirmationModal, setConfirmationModal] = useState(null);
 
   const TRUNCATE_LENGTH = 30;
+
+  const [updatedCourses, setUpdatedCourses] = useState(courses);
+
+  // used to get the totalDuration of a course
+  useEffect(() => {
+    async function updateCoursesWithDuration() {
+      const updatedData = await Promise.all(
+        courses.map(async (course) => {
+          const result = await fetchCourseDetails(course._id);
+          return {
+            ...course,
+            totalDuration: result?.data?.totalDuration || "N/A",
+          };
+        })
+      );
+      setUpdatedCourses(updatedData);
+    }
+    updateCoursesWithDuration();
+  }, [courses]);
 
   const handleCourseDelete = async (courseId) => {
     setLoading(true);
@@ -59,14 +79,14 @@ export default function CoursesTable({ courses, setCourses }) {
         </Thead>
 
         <Tbody>
-          {courses?.length === 0 ? (
+          {updatedCourses?.length === 0 ? (
             <Tr>
               <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
                 No courses found
               </Td>
             </Tr>
           ) : (
-            courses?.map((course) => (
+            updatedCourses?.map((course) => (
               <Tr
                 key={course._id}
                 className="flex gap-x-10 border-b border-richblack-700 px-6 py-8"
@@ -111,8 +131,8 @@ export default function CoursesTable({ courses, setCourses }) {
                 </Td>
 
                 {/* duration  */}
-                <Td className="text-sm font-medium text-richblack-100">
-                  2hr 30min
+                <Td className="text-sm font-medium text-richblack-100 mr-4">
+                  {course.totalDuration}
                 </Td>
 
                 {/* price  */}

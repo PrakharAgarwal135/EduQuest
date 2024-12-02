@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { FiUploadCloud } from "react-icons/fi";
-import { useSelector } from "react-redux";
 
 // hook to create a HTML5-compliant drag'n'drop zone for files
 import { useDropzone } from "react-dropzone";
