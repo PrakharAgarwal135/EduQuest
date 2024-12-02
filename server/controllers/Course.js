@@ -2,6 +2,7 @@ const Course = require("../models/Course");
 const Category = require("../models/Category");
 const Section = require("../models/Section");
 const SubSection = require("../models/SubSection");
+const courseProgress = require("../models/CourseProgress");
 const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
 const { convertSecondsToDuration } = require("../utils/secToDuration");
@@ -324,7 +325,7 @@ exports.getFullCourseDetails = async (req, res) => {
       })
       .exec();
 
-    let courseProgressCount = await CourseProgress.findOne({
+    let courseProgressCount = await courseProgress.findOne({
       courseID: courseId,
       userId: userId,
     });

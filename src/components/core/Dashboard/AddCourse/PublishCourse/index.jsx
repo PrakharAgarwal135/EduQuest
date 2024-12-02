@@ -13,8 +13,10 @@ export default function PublishCourse() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { token } = useSelector((state) => state.auth);
   const { course } = useSelector((state) => state.course);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function PublishCourse() {
     }
   }, []);
 
+  // when clicked on back btn
   const goBack = () => {
     dispatch(setStep(2));
   };
@@ -44,22 +47,26 @@ export default function PublishCourse() {
       goToCourses();
       return;
     }
+
+    // if form is updated
     const formData = new FormData();
     formData.append("courseId", course._id);
     const courseStatus = getValues("public")
       ? COURSE_STATUS.PUBLISHED
       : COURSE_STATUS.DRAFT;
     formData.append("status", courseStatus);
+
     setLoading(true);
+
     const result = await editCourseDetails(formData, token);
     if (result) {
       goToCourses();
     }
+
     setLoading(false);
   };
 
   const onSubmit = (data) => {
-    // console.log(data)
     handleCoursePublish();
   };
 
@@ -68,6 +75,7 @@ export default function PublishCourse() {
       <p className="text-2xl font-semibold text-richblack-5">
         Publish Settings
       </p>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* Checkbox */}
         <div className="my-6 mb-8">
@@ -84,8 +92,9 @@ export default function PublishCourse() {
           </label>
         </div>
 
-        {/* Next Prev Button */}
+        {/* save and back Button */}
         <div className="ml-auto flex max-w-max items-center gap-x-4">
+          {/* back btn  */}
           <button
             disabled={loading}
             type="button"
@@ -94,6 +103,8 @@ export default function PublishCourse() {
           >
             Back
           </button>
+
+          {/* save btn  */}
           <IconBtn
             type="submit"
             customClasses="bg-yellow-100 px-4 py-2 rounded-md text-black font-semibold"

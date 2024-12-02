@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Catalog() {
-  return <div></div>;
+  return <div className="text-white">this is catalog page</div>;
 }

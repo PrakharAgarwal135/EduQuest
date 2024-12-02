@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
-import { formatDate } from "../../../../services/formatDate";
+import { formatDate } from "../../../../utils/formatDate";
 import {
   deleteCourse,
   fetchInstructorCourses,
