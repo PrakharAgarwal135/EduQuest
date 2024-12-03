@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { BiInfoCircle } from "react-icons/bi";
 import { HiOutlineGlobeAlt } from "react-icons/hi";
-import { defaultUrlTransform } from "react-markdown";
 import { toast } from "react-hot-toast";
 
 import ConfirmationModal from "../components/common/ConfirmationModal";
@@ -32,6 +31,7 @@ export default function CourseDetails() {
 
   const [response, setResponse] = useState(null);
   const [avgReviewCount, setAvgReviewCount] = useState(0);
+  // isActive is array bcs a course will have many sections and we will keep track track of active(open) sections with array
   const [isActive, setIsActive] = useState(Array(0));
   const [totalNoOfLectures, setTotalNoOfLectures] = useState(0);
   const [confirmationModal, setConfirmationModal] = useState(null);
@@ -58,6 +58,7 @@ export default function CourseDetails() {
   // for collapsing and showing subsections
   const handleActive = (id) => {
     setIsActive(
+      // agar active nhi h to active krdo aur active h to inactive krdo (toggle)
       !isActive.includes(id)
         ? isActive.concat([id])
         : isActive.filter((e) => e != id)
@@ -151,7 +152,7 @@ export default function CourseDetails() {
       {/* section 1 (Hero Section / course card) */}
       <div className={`relative w-full bg-richblack-800`}>
         <div className="mx-auto box-content px-4 lg:w-[1260px] 2xl:relative ">
-          <div className="mx-auto grid min-h-[450px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px]">
+          <div className="mx-auto grid min-h-[400px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px]">
             {/* this div will be hidden on lg screens and will display our course thumbnail   */}
             <div className="relative block max-h-[30rem] lg:hidden">
               <img
@@ -216,10 +217,9 @@ export default function CourseDetails() {
           </div>
 
           {/* rendering the courses card for lg screens*/}
-          <div className="right-[1rem] top-[60px] mx-auto hidden min-h-[600px] w-1/3 max-w-[410px] translate-y-24 md:translate-y-0 lg:absolute lg:block">
+          <div className="right-[1rem] top-[80px] mx-auto hidden min-h-[600px] w-1/3 max-w-[410px] translate-y-24 md:translate-y-0 lg:absolute lg:block">
             <CourseDetailsCard
               course={response?.data?.courseDetails}
-              setConfirmationModal={setConfirmationModal}
               handleBuyCourse={handleBuyCourse}
               handleAddToCart={handleAddToCart}
             />
@@ -227,18 +227,23 @@ export default function CourseDetails() {
         </div>
       </div>
 
-      {/* section 2  */}
+      {/* section 2 (What you'll learn , course content and author) */}
       <div className="mx-auto box-content px-4 text-start text-richblack-5 lg:w-[1260px]">
         <div className="mx-auto max-w-maxContentTab lg:mx-0 xl:max-w-[810px]">
           {/* What will you learn section */}
           <div className="my-8 border border-richblack-600 p-8">
             <p className="text-3xl font-semibold">What you'll learn</p>
-            <div className="mt-5">
-              <defaultUrlTransform>{whatYouWillLearn}</defaultUrlTransform>
-            </div>
+            <ul className="mt-5 list-disc list-inside space-y-2">
+              {whatYouWillLearn
+                .split(/[\n.]+/) // Split by newlines or full stops
+                .filter((sentence) => sentence.trim() !== "") // Remove empty strings
+                .map((sentence, index) => (
+                  <li key={index}>{sentence.trim()}</li>
+                ))}
+            </ul>
           </div>
 
-          {/* Course Content Section */}
+          {/* Course Content and author */}
           <div className="max-w-[830px] ">
             <div className="flex flex-col gap-3">
               <p className="text-[28px] font-semibold">Course Content</p>
@@ -247,9 +252,11 @@ export default function CourseDetails() {
                   <span>
                     {courseContent?.length} {`section(s)`}
                   </span>
+                  <span className="mx-1">•</span>
                   <span>
                     {totalNoOfLectures} {`lecture(s)`}
                   </span>
+                  <span className="mx-1">•</span>
                   <span>{response.data?.totalDuration} total length</span>
                 </div>
                 <div>

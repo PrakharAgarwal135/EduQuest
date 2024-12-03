@@ -14,6 +14,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
 import Dashboard from "./pages/Dashboard";
+import ViewCourse from "./pages/ViewCourse";
 
 import Navbar from "./components/common/Navbar";
 
@@ -27,6 +28,7 @@ import Cart from "./components/core/Dashboard/Cart/index";
 import MyCourses from "./components/core/Dashboard/MyCourses/index";
 import AddCourse from "./components/core/Dashboard/AddCourse/index";
 import EditCourse from "./components/core/Dashboard/EditCourse/index";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 
 import { ACCOUNT_TYPE } from "./utils/constants";
 
@@ -118,6 +120,24 @@ function App() {
               <Route
                 path="/dashboard/edit-course/:courseId"
                 element={<EditCourse />}
+              />
+            </>
+          )}
+        </Route>
+
+        {/* view course route  */}
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
               />
             </>
           )}
