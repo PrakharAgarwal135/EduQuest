@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../components/common/Footer";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import { apiConnector } from "../services/apiconnector";
 import { categories } from "../services/apis";
 import { getCatalogPageData } from "../services/operations/pageAndComponentData";
 import Course_Card from "../components/core/Catalog/Course_Card.jsx";
 import CourseSlider from "../components/core/Catalog/CourseSlider.jsx";
-import { useSelector } from "react-redux";
+import Footer from "../components/common/Footer";
 import Error from "./Error";
 
 const Catalog = () => {

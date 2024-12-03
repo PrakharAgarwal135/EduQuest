@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import { studentEndpoints } from "../apis";
 import { apiConnector } from "../apiconnector";
-// import rzpLogo from "../../assets/Logo/rzp_logo.png"
+import rzpLogo from "../../assets/images/rzp_logo.png";
 import { setPaymentLoading } from "../../slices/courseSlice";
 import { resetCart } from "../../slices/cartSlice";
 
@@ -11,6 +11,8 @@ const {
   SEND_PAYMENT_SUCCESS_EMAIL_API,
 } = studentEndpoints;
 
+// razorpay integration needs to load a script
+// so that means we have a load a script on runtime so writing fn for that
 function loadScript(src) {
   return new Promise((resolve) => {
     const script = document.createElement("script");
@@ -56,15 +58,17 @@ export async function buyCourse(
     );
 
     if (!orderResponse.data.success) {
-      throw new Error(orderResponse.data.message);
+      throw new Error(orderResponse.data.data);
     }
-    console.log("PRINTING orderResponse", orderResponse);
+    console.log("printing orderResponse", orderResponse);
+
+    // creating the options
     const options = {
-      key: process.env.RAZORPAY_KEY,
-      currency: orderResponse.data.message.currency,
-      amount: `${orderResponse.data.message.amount}`,
-      order_id: orderResponse.data.message.id,
-      name: "StudyNotion",
+      key: import.meta.env.RAZORPAY_KEY,
+      currency: orderResponse.data.data.currency,
+      amount: `${orderResponse.data.data.amount}`,
+      order_id: orderResponse.data.data.id,
+      name: "EduQuest",
       description: "Thank You for Purchasing the Course",
       image: rzpLogo,
       prefill: {
@@ -75,14 +79,15 @@ export async function buyCourse(
         //send successful wala mail
         sendPaymentSuccessEmail(
           response,
-          orderResponse.data.message.amount,
+          orderResponse.data.data.amount,
           token
         );
         //verifyPayment
         verifyPayment({ ...response, courses }, token, navigate, dispatch);
       },
     };
-    //miss hogya tha
+
+    // creating razorpay window
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
     paymentObject.on("payment.failed", function (response) {
@@ -127,8 +132,13 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
     if (!response.data.success) {
       throw new Error(response.data.message);
     }
-    toast.success("payment Successful, ypou are addded to the course");
+
+    toast.success(
+      "payment Successful, course has been added to your dashboard"
+    );
+
     navigate("/dashboard/enrolled-courses");
+
     dispatch(resetCart());
   } catch (error) {
     console.log("PAYMENT VERIFY ERROR....", error);

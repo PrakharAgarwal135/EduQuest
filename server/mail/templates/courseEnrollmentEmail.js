@@ -44,7 +44,7 @@ module.exports.courseEnrollmentEmail = (courseName, name) => {
           .cta {
               display: inline-block;
               padding: 10px 20px;
-              background-color: #FFD60A;
+              background-color: #FFE83D;
               color: #000000;
               text-decoration: none;
               border-radius: 15px;

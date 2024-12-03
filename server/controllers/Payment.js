@@ -43,7 +43,7 @@ exports.capturePayment = async (req, res) => {
       }
 
       // check if user already paid for the course
-      const uid = mongoose.Types.ObjectId(userId);
+      const uid = new mongoose.Types.ObjectId(String(userId));
       if (course.studentsEnrolled.includes(uid)) {
         return res.status(200).json({
           success: false,

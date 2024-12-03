@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/EduQuest";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 // auth endpoints
 export const endpoints = {
