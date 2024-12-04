@@ -20,7 +20,7 @@ const CourseSlider = ({ Courses }) => {
           loop={true}
           modules={[FreeMode, Autoplay]}
           autoplay={{
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false, // Keeps autoplay running even after interaction
           }}
           breakpoints={{

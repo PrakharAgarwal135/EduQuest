@@ -233,12 +233,14 @@ export default function CourseDetails() {
           {/* What will you learn section */}
           <div className="my-8 border border-richblack-600 p-8">
             <p className="text-3xl font-semibold">What you'll learn</p>
-            <ul className="mt-5 list-disc list-inside space-y-2">
+            <ul className="mt-5 list-disc list-outside space-y-2">
               {whatYouWillLearn
                 .split(/[\n.]+/) // Split by newlines or full stops
                 .filter((sentence) => sentence.trim() !== "") // Remove empty strings
                 .map((sentence, index) => (
-                  <li key={index}>{sentence.trim()}</li>
+                  <li key={index} className="ml-4">
+                    {sentence.trim()}
+                  </li>
                 ))}
             </ul>
           </div>
