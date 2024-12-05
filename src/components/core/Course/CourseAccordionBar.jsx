@@ -29,9 +29,9 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
         >
           <div className="flex items-center gap-2">
             <i
-              className={
+              className={`${
                 isActive.includes(course._id) ? "rotate-180" : "rotate-0"
-              }
+              } ,transition-all duration-300`}
             >
               <AiOutlineDown />
             </i>
