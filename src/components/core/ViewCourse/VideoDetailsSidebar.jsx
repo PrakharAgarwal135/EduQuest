@@ -56,7 +56,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
         {/* sidebar header section */}
         <div className="mx-5 mb-6 flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richblack-500 py-5 text-richblack-5">
           {/* back btn  */}
-          <div
+          {/* <div
             onClick={() => {
               navigate(`/dashboard/enrolled-courses`);
             }}
@@ -64,7 +64,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
             title="back"
           >
             <IoIosArrowBack size={20} /> Back
-          </div>
+          </div> */}
 
           {/* course name and completed lectures  */}
           <div className="flex flex-col">
