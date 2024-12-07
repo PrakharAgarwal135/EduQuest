@@ -10,6 +10,16 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform d
 
 ---
 
+<h3>EduQuest Features:</h3>
+
+- 🔑 **User Authentication and Authorisation**: Students and Instructors can easily sign up and log in using their email and password. The platform also supports OTP verification and forgot password features for enhanced security.
+- 📚 **Course Management**: Instructors can create, update, delete, and manage their courses and content. Students can browse, enrol, and rate courses.
+- 💳 **Payment Integration**: Students can purchase and enrol in courses with a seamless checkout flow using Razorpay for secure payment processing.
+- 🗺️ **Map Integration**: See campground locations on an interactive map (Maptiler).
+- 📷 **Cloud-based Media Management**: EduQuest uses Cloudinary to securely store and manage all media content (images, videos, documents) for easy access and management.
+
+---
+
 <h3>Technologies Used:</h3>
 
 ### Frontend:
