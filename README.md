@@ -49,3 +49,36 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform d
 -  **Vercel**: Cloud platform for deploying the app's frontend.
 
 ---
+
+<h3>Frontend Pages:</h3>
+
+### For Students:
+-  **Homepage**: This page has a brief introduction to the platform.
+  
+-  **Catalog**: Display a list of courses for a selected category, course previews, ratings, and sorting options for easy browsing and enrollment.
+  
+-  **Course Content**: Presents the course content for a particular course, including videos and related material.
+  
+-  **Cart Checkout**: Display a summary of the selected courses, their prices, and any applied discounts or promotions.
+  
+-  **Razorpay Payment Page**: This page will handle the payment process, where students can securely enter payment details and complete the transaction.
+  
+-  **Enrolled Courses**: Display a list of courses the user has enrolled in, with access to course content and progress tracking.
+  
+-  **Ratings and Reviews Page**: Allows students to provide feedback on enrolled courses.
+  
+-  **Profile**: This page will have details about the student's account, including their name, email, and other relevant information.
+
+-  **Settings**: This page will allow the students to edit their account details, update the password and delete the account.
+
+### For Instructors:
+-  **Course Creation Pages**: Allow instructors to add course details, upload content, set pricing, and publish the course for student enrollment.
+
+-  **My Courses**: Displays a list of their created courses, along with options to view, edit, or delete each course, track enrollments, and manage course content.
+
+-  **Profile**: This page will have details about the instructor's account, including their name, email, and other relevant information.
+
+-  **Settings**: This page will allow the instructors to edit their account details, update the password and delete the account.
+
+
+---
