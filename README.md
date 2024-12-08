@@ -1,4 +1,4 @@
-<h1><a href="https://edu-quest-theta.vercel.app/" target="_blank" rel="noopener noreferrer">EduQuest</a> (Major Project)</h1>
+<h1><a href="https://edu-quest-theta.vercel.app/">EduQuest</a> (Major Project)</h1>
 <h3>A Fully Functional EdTech Platform Empowering Users to LEARN, CREATE, EXPLORE and RATE educational content </h3>
 Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform aims to provide:
 
@@ -116,3 +116,39 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform a
 ### 7) Settings Page (for both instructor and student)
 
 ![Settings Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/settings.png)
+
+### 8) Add Course Page (instructor dashboard)
+
+![Add course Page]()
+
+### 9) Add Lecture Page (instructor dashboard)
+
+![Add lecture Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/add%20course%203.png)
+
+### 10) My Courses Page (instructor dashboard)
+
+![My courses Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/my%20courses.png)
+
+### 11) Cart Page (student dashboard)
+
+![Cart Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/cart%20page.png)
+
+### 12) Enrolled Courses Page (student dashboard)
+
+![Enrolled Courses Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/enrolled%20courses.png)
+
+### 13) Learning Environment Page (student dashboard)
+
+![Learning Environment Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/view%20course%20pg.png)
+
+### 14) Add review Page (student dashboard)
+
+![Add review Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/add%20review.png)
+
+### 15) Razorpay Payment Page
+
+![Razorpay Payment Page]()
+
+### 16) Mail Templates
+
+![Mail Templates]()
