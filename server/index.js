@@ -7,7 +7,6 @@ const { cloudinaryConnect } = require("./config/cloudinary");
 const database = require("./config/database");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
-const path = require("path");
 
 const userRoutes = require("./routes/User");
 const profileRoutes = require("./routes/Profile");
@@ -45,14 +44,6 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-
-// Serve static files from the root directory's dist folder
-app.use(express.static(path.join(__dirname, "../dist")));
-
-// Rewrite all routes to serve index.html from the dist folder
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
-});
 
 //routes
 app.use("/EduQuest/auth", userRoutes);
