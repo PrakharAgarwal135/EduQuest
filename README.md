@@ -86,3 +86,33 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform a
 
 
 ---
+
+<h3>Screenshots:</h3>
+
+### 1) Home Page
+
+![Home Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/home%20pg.png)
+
+### 2) Contact Page
+
+![Contact Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/contact%20us.png)
+
+### 3) Signup Page
+
+![Signup Page]()
+
+### 4) Catalog Page
+
+![Catalog Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/catalog%20page.png)
+
+### 5) Viewing a Course Page
+
+![Course Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/course%20page.png)
+
+### 6) Profile Page (for both instructor and student)
+
+![Profile Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/my%20profile.png)
+
+### 7) Settings Page (for both instructor and student)
+
+![Settings Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/settings.png)
