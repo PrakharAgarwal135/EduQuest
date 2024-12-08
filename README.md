@@ -99,7 +99,7 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform a
 
 ### 3) Signup Page
 
-![Signup Page]()
+![Signup Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/signup%20final.png)
 
 ### 4) Catalog Page
 
@@ -119,7 +119,7 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform a
 
 ### 8) Add Course Page (instructor dashboard)
 
-![Add course Page]()
+![Add course Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/add%20course%20cc.png)
 
 ### 9) Add Lecture Page (instructor dashboard)
 
@@ -147,8 +147,8 @@ Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform a
 
 ### 15) Razorpay Payment Page
 
-![Razorpay Payment Page]()
+![Razorpay Payment Page](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/rzpay%20payment%20cc.png)
 
 ### 16) Mail Templates
 
-![Mail Templates]()
+![Mail Templates](https://github.com/PrakharAgarwal135/EduQuest/blob/main/src/assets/readmeSS/mail%20template%20cc.png)
