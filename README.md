@@ -1,6 +1,10 @@
-<h1><a href="https://edu-quest-theta.vercel.app/">EduQuest </a> (Major Project)</h1>
+<h1><a href="https://edu-quest-theta.vercel.app/" target="_blank" rel="noopener noreferrer">EduQuest</a> (Major Project)</h1>
 <h3>A Fully Functional EdTech Platform Empowering Users to LEARN, CREATE, EXPLORE and RATE educational content </h3>
-Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform delivers seamless educational experiences, enabling users to create, access, and review diverse learning content.
+Built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS), this platform aims to provide:
+
+- A seamless and interactive learning experience for students, making education more accessible and engaging.  
+- Empower instructors to showcase their expertise and connect with learners across the globe.
+
 
 ---
 
